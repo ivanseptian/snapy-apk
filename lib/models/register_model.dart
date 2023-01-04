@@ -2,13 +2,15 @@ class register_model {
   Data? data;
   String? accessToken;
   String? tokenType;
+  String? message;
 
-  register_model({this.data, this.accessToken, this.tokenType});
+  register_model({this.data, this.accessToken, this.tokenType, this.message});
 
   register_model.fromJson(Map<String, dynamic> json) {
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
     accessToken = json['access_token'];
     tokenType = json['token_type'];
+    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {

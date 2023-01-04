@@ -16,6 +16,7 @@ class ColorsValue {
   static Color textColorAA = const Color(0xffAAAAAA);
   static Color textColor00 = const Color(0xff000000);
   static Color textColorD0 = const Color(0xffC1C7D0);
+  static Color textColorCardMembership = const Color(0xff343333);
   static Color textColor59 = const Color(0xff324A59);
   static Color textColorFF = const Color(0xffFFFFFF);
 

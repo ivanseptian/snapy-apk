@@ -22,7 +22,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsValue.backgroundWhite,
+      backgroundColor: Colors.black,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,7 +41,7 @@ class RegisterScreen extends StatelessWidget {
                         AssetsValue.x,
                         height: 16.h,
                         width: 16.w,
-                        color: ColorsValue.textColor00,
+                        color: Colors.white,
                       ),
                       onTap: (){
                         Get.back();
@@ -51,7 +51,7 @@ class RegisterScreen extends StatelessWidget {
                       StringValue.rsDaftarTxt,
                       style: GoogleFonts.poppins(
                           fontSize: 25.sp,
-                          color: ColorsValue.textColor00,
+                          color: Colors.white,
                           fontWeight: FontWeight.w500
                       ),
                     ),
@@ -60,7 +60,7 @@ class RegisterScreen extends StatelessWidget {
                         StringValue.rsMasukTxt,
                         style: GoogleFonts.poppins(
                             fontSize: 14.sp,
-                            color: ColorsValue.textColor00,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500
                         ),
                       ),
@@ -89,7 +89,7 @@ class RegisterScreen extends StatelessWidget {
                                 return null;
                               },
                               inputAction: TextInputAction.next, inputType: TextInputType.text,
-                              prefixIcon: _prefixNamaLengkap(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixNamaLengkap(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorAA,),
                           ),
                           Gap(26.h),
@@ -111,7 +111,7 @@ class RegisterScreen extends StatelessWidget {
                                 FilteringTextInputFormatter.deny(RegExp(r'^0+'))
                               ],
                               inputAction: TextInputAction.next, inputType: TextInputType.phone,
-                              prefixIcon: _prefixNoHp(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixNoHp(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorAA,),
                           ),
                           Gap(26.h),
@@ -127,7 +127,7 @@ class RegisterScreen extends StatelessWidget {
                                 return null;
                               },
                               inputAction: TextInputAction.next, inputType: TextInputType.emailAddress,
-                              prefixIcon: _prefixEmail(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixEmail(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorD0,),
                           ),
                           Gap(26.h),
@@ -151,7 +151,7 @@ class RegisterScreen extends StatelessWidget {
                               onSuffixIconClick: (){
                                 registerScreen.showHidePassword();
                               },
-                              prefixIcon: _prefixPassword(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixPassword(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorD0,),
                           ),
                           Gap(26.h),
@@ -177,7 +177,7 @@ class RegisterScreen extends StatelessWidget {
                               onSuffixIconClick: (){
                                 registerScreen.showHideConfirmPassword();
                               },
-                              prefixIcon: _prefixPassword(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixPassword(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorD0,),
                           )
                         ],
@@ -223,7 +223,7 @@ class RegisterScreen extends StatelessWidget {
         Text(
           "+62",
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 10.sp,
             fontWeight: FontWeight.w500
           ),
@@ -245,9 +245,10 @@ class RegisterScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         SvgPicture.asset(
-          AssetsValue.profile,
+          AssetsValue.userIcon,
           height: 18.h,
           width: 18.w,
+          color: Colors.white,
         ),
         Gap(10.w),
         Container(
@@ -270,6 +271,7 @@ class RegisterScreen extends StatelessWidget {
           AssetsValue.lock,
           height: 18.h,
           width: 12.6.w,
+          color: Colors.white,
         ),
         Gap(12.w),
         Container(
@@ -291,6 +293,7 @@ class RegisterScreen extends StatelessWidget {
           AssetsValue.mail,
           height: 18.h,
           width: 12.6.w,
+          color: Colors.white,
         ),
         Gap(10.5.w),
         Container(
@@ -308,6 +311,7 @@ class RegisterScreen extends StatelessWidget {
       assetValue,
       height: 13.79.h,
       width: 17.13.w,
+      color: Colors.white,
     );
   }
 

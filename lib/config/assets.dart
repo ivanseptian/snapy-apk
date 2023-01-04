@@ -26,5 +26,8 @@ class AssetsValue {
   static String profileInactive = './assets/icons/user_icon_inactive.svg';
   static String mapsIcon = './assets/icons/maps.svg';
   static String whatsappIcon = './assets/icons/whatsapp.svg';
-  static String userIcon = './assets/icons/user.svg';
+  static String userIcon = './assets/icons/laptop_and_man.svg';
+  static String startPointsIcon = './assets/icons/shining_star.svg';
+  static String shareIcon = './assets/icons/share.svg';
+  static String refreshIcon = './assets/icons/arrow_refresh.svg';
 }

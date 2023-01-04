@@ -33,6 +33,7 @@ class Data {
   String? address;
   int? point;
   String? expiredDate;
+  String? memberType;
 
   Data(
       {this.loginName,
@@ -41,7 +42,8 @@ class Data {
         this.loginId,
         this.address,
         this.point,
-        this.expiredDate});
+        this.expiredDate,
+      this.memberType});
 
   Data.fromJson(Map<String, dynamic> json) {
     loginName = json['LoginName'];
@@ -51,6 +53,7 @@ class Data {
     address = json['address'];
     point = json['point'];
     expiredDate = json['expiredDate'];
+    memberType = json['memberType'];
   }
 
   Map<String, dynamic> toJson() {

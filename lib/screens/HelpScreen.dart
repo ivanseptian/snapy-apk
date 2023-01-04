@@ -16,10 +16,10 @@ class HelpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: ColorsValue.backgroundWhite,
+    return SafeArea(child: Scaffold(
+        backgroundColor: Colors.black,
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: ListView(
             shrinkWrap: true,
             children: [
@@ -50,11 +50,11 @@ class HelpScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w300,
-                    color: ColorsValue.textColor00),
+                    color: Colors.white),
               ),
             ],
           ),
         )
-    );
+    ));
   }
 }

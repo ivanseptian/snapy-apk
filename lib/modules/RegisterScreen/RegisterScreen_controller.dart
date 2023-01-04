@@ -53,12 +53,13 @@ class RegisterScreenController extends GetxController {
       inputTxtPassword.value.text, inputTxtPhoneNumber.value.text);
       Get.back();
       if(registerModel!=null) {
+        String? message = registerModel.message.toString();
         String? token = registerModel.accessToken;
 
         if(token!=null && token.isNotEmpty) {
           setSharePreferences(token, registerModel.data!);
         } else {
-          Functions.checkErrorPopup("");
+          Functions.checkErrorPopup(message);
         }
       } else {
         Functions.checkErrorPopup("");

@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsValue.backgroundWhite,
+        backgroundColor: Colors.black,
         body: Obx(() => !homeScreen.isLoading.value
             ? RefreshIndicator(
                 child: Padding(
@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                               style: GoogleFonts.poppins(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: ColorsValue.textColor00),
+                                  color: Colors.white),
                             ),
                           ),
                           Image.asset(
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                                 },
                                 child: Card(
                                   elevation: 2,
-                                  color: ColorsValue.textColorD0,
+                                  color: ColorsValue.textColorCardMembership,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
@@ -92,53 +92,72 @@ class HomeScreen extends StatelessWidget {
                                               fit: BoxFit.fill,
                                             )
                                           : Padding(
-                                              padding: EdgeInsets.all(10),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "${homeScreen.userName}",
-                                                    style: GoogleFonts.poppins(
-                                                        fontSize: 12.sp,
-                                                        color: ColorsValue
-                                                            .backgroundWhite,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  Text(
-                                                    "${homeScreen.points} Points",
-                                                    style: GoogleFonts.poppins(
-                                                        fontSize: 10.sp,
-                                                        color: Colour(
-                                                            Colors.white),
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  Expanded(
-                                                    child: Container(),
-                                                  ),
-                                                  Text(
-                                                    "Exp: ${homeScreen.expired}",
-                                                    style: GoogleFonts.poppins(
-                                                        fontSize: 12.sp,
-                                                        color: ColorsValue
-                                                            .backgroundWhite,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  Text(
-                                                    "No: ${homeScreen.id}",
-                                                    style: GoogleFonts.poppins(
-                                                        fontSize: 12.sp,
-                                                        color: ColorsValue
-                                                            .backgroundWhite,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
+                                        padding: EdgeInsets.all(5),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "${homeScreen.userName}",
+                                              style: GoogleFonts.poppins(
+                                                  fontSize: 13.sp,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w500
                                               ),
                                             ),
+                                            Expanded(child: Row(
+                                              children: [
+                                                Gap(5.w),
+                                                Image.asset(
+                                                  AssetsValue.logo,
+                                                  height: 20.h,
+                                                  fit: BoxFit.fitWidth,
+                                                ),
+                                                Gap(2.w),
+                                                Text(
+                                                  "Snappy",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 15.sp,
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.w700
+                                                  ),
+                                                ),
+                                                Text(
+                                                  homeScreen.memberType.value == "reguler"?"Pass":"Reward",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 15.sp,
+                                                      color: ColorsValue.backgroundColor,
+                                                      fontWeight: FontWeight.w600
+                                                  ),
+                                                ),
+                                              ],
+                                            ),),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                homeScreen.memberType.value != "reguler"?
+                                                Text(
+                                                  "Exp: ${homeScreen.expired}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 8.sp,
+                                                      fontStyle: FontStyle.italic,
+                                                      color: ColorsValue.backgroundWhite,
+                                                      fontWeight: FontWeight.w400
+                                                  ),
+                                                ):Container(),
+                                                Text(
+                                                  "No: ${homeScreen.id}",
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 8.sp,
+                                                      fontStyle: FontStyle.italic,
+                                                      color: ColorsValue.backgroundWhite,
+                                                      fontWeight: FontWeight.w400
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),

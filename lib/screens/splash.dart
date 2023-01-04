@@ -14,15 +14,15 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
         body: Container(
           height: Get.height,
           width: Get.width,
-          color: ColorsValue.backgroundColorSplashScreen,
           child: Center(
             child: Image.asset(
               AssetsValue.logo,
-              height: 85.h,
-              width: 300.w,
+              height: 130.h,
+              width: 130.w,
             ),
           ),
         )

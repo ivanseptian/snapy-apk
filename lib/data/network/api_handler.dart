@@ -84,6 +84,7 @@ class _ApiHandlerImpl implements ApiHandler {
 
   dynamic _process(http.Response response) {
     switch (response.statusCode) {
+      case 422:
       case 200:
       case 400:
       case 401:

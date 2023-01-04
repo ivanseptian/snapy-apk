@@ -19,6 +19,7 @@ class HomeScreenController extends GetxController {
   var points = "".obs;
   var expired = "".obs;
   var token = "".obs;
+  var memberType = "".obs;
   var isLoading = false.obs;
   var currentIndexBanner = 0.obs;
   var listBanners = <banners_model>[].obs;
@@ -37,6 +38,7 @@ class HomeScreenController extends GetxController {
     id.value = await Prefs.getString(StringValue.sessionLoginIdStr)??"";
     points.value = await Prefs.getString(StringValue.sessionPointStr)??"";
     expired.value = await Prefs.getString(StringValue.sessionExpiredStr)??"";
+    memberType.value = await Prefs.getString(StringValue.sessionMemberTypeStr)??"";
     super.onInit();
   }
 

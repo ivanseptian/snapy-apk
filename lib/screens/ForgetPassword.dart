@@ -21,7 +21,7 @@ class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsValue.backgroundWhite,
+      backgroundColor: Colors.black,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,7 +40,7 @@ class ForgetPassword extends StatelessWidget {
                         AssetsValue.x,
                         height: 16.h,
                         width: 16.w,
-                        color: ColorsValue.textColor00,
+                        color: Colors.white,
                       ),
                       onTap: (){
                         Get.back();
@@ -50,7 +50,7 @@ class ForgetPassword extends StatelessWidget {
                       StringValue.resetPasswordTxt,
                       style: GoogleFonts.poppins(
                           fontSize: 25.sp,
-                          color: ColorsValue.textColor00,
+                          color: Colors.white,
                           fontWeight: FontWeight.w500
                       ),
                     ),
@@ -59,7 +59,7 @@ class ForgetPassword extends StatelessWidget {
                         StringValue.rsMasukTxt,
                         style: GoogleFonts.poppins(
                             fontSize: 14.sp,
-                            color: ColorsValue.textColor00,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500
                         ),
                       ),
@@ -88,7 +88,7 @@ class ForgetPassword extends StatelessWidget {
                                 return null;
                               },
                               inputAction: TextInputAction.next, inputType: TextInputType.emailAddress,
-                              prefixIcon: _prefixEmail(), textSize: 12, textColor: ColorsValue.textColor00,
+                              prefixIcon: _prefixEmail(), textSize: 12, textColor: Colors.white,
                               fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorD0,),
                           ),
                           Gap(26.h),
@@ -131,6 +131,7 @@ class ForgetPassword extends StatelessWidget {
           AssetsValue.mail,
           height: 18.h,
           width: 12.6.w,
+          color: Colors.white,
         ),
         Gap(10.5.w),
         Container(

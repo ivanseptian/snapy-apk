@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       child: new Scaffold(
-      backgroundColor: ColorsValue.backgroundColorLoginScreen,
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           Positioned(
@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                           StringValue.lcLoginTxt,
                           style: GoogleFonts.poppins(
                               fontSize: 22.sp,
-                              color: ColorsValue.textColor2D,
+                              color: Colors.white,
                               fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -89,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                         child: Text(
                           StringValue.lcSelamatDatangTxt,
                           style: GoogleFonts.poppins(
-                              color: ColorsValue.textColorAA,
+                              color: Colors.white,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400),
                         ),
@@ -118,7 +118,7 @@ class LoginScreen extends StatelessWidget {
                                     inputType: TextInputType.emailAddress,
                                     prefixIcon: _prefixEmail(),
                                     textSize: 12,
-                                    textColor: ColorsValue.textColor00,
+                                    textColor: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     hintColor: ColorsValue.textColorD0,
                                   ),
@@ -155,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                                     },
                                     prefixIcon: _prefixPassword(),
                                     textSize: 12,
-                                    textColor: ColorsValue.textColor00,
+                                    textColor: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     hintColor: ColorsValue.textColorD0,
                                   ),
@@ -175,7 +175,7 @@ class LoginScreen extends StatelessWidget {
                             style: GoogleFonts.poppins(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w500,
-                                color: ColorsValue.textColor59),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -191,7 +191,7 @@ class LoginScreen extends StatelessWidget {
                             style: GoogleFonts.poppins(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w500,
-                                color: ColorsValue.textColor59),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -238,6 +238,7 @@ class LoginScreen extends StatelessWidget {
       assetValue,
       height: 13.79.h,
       width: 17.13.w,
+      color: Colors.white,
     );
   }
 
@@ -251,6 +252,7 @@ class LoginScreen extends StatelessWidget {
           AssetsValue.lock,
           height: 18.h,
           width: 12.6.w,
+          color: Colors.white,
         ),
         Gap(12.w),
         Container(
@@ -272,6 +274,7 @@ class LoginScreen extends StatelessWidget {
           AssetsValue.mail,
           height: 18.h,
           width: 12.6.w,
+          color: Colors.white,
         ),
         Gap(10.5.w),
         Container(

@@ -48,5 +48,6 @@ class StringValue {
   static String sessionAddressStr = "address";
   static String sessionPointStr = "point";
   static String sessionExpiredStr = "expired";
+  static String sessionMemberTypeStr = "member_type";
 
 }

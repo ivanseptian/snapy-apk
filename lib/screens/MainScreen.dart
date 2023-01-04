@@ -31,7 +31,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         child: Scaffold(
-          backgroundColor: ColorsValue.backgroundWhite,
+          backgroundColor: Colors.black,
           body: Stack(
             children: [
               PageView(
@@ -45,6 +45,7 @@ class MainScreen extends StatelessWidget {
                   ProfileScreen(Get.put(ProfileScreenController(ProfileScreenService()))),
                 ],
               ),
+              Positioned(child: Container(color: ColorsValue.psColorE8, width: Get.width, height: 1,),bottom: 0,)
             ],
           ),
           bottomNavigationBar: Obx(() => BottomNavigationBar(
@@ -53,7 +54,7 @@ class MainScreen extends StatelessWidget {
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             type: BottomNavigationBarType.fixed,
             unselectedItemColor: const Color(0xffDADADA),
             selectedItemColor: ColorsValue.backgroundColor,

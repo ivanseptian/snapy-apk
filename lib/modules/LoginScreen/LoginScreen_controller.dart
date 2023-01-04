@@ -69,6 +69,7 @@ class LoginScreenController extends GetxController {
     await prefs.setString(StringValue.sessionNameStr, data.loginName??"");
     await prefs.setString(StringValue.sessionPhoneStr, data.loginPhone??"");
     await prefs.setString(StringValue.sessionPointStr, (data.point??0).toString());
+    await prefs.setString(StringValue.sessionMemberTypeStr, (data.memberType??"reguler").toLowerCase());
     Get.offAllNamed(Routes.mainScreen);
   }
 

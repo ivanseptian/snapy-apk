@@ -30,6 +30,7 @@ GetSingleTickerProviderStateMixin {
   var address = "".obs;
   var phone = "".obs;
   var qrData = "".obs;
+  var memberType = "".obs;
 
   @override
   Future<void> onInit() async {
@@ -41,6 +42,7 @@ GetSingleTickerProviderStateMixin {
     expired.value = await Prefs.getString(StringValue.sessionExpiredStr)??"";
     address.value = await Prefs.getString(StringValue.sessionAddressStr)??"";
     phone.value = await Prefs.getString(StringValue.sessionPhoneStr)??"";
+    memberType.value = await Prefs.getString(StringValue.sessionMemberTypeStr)??"";
     convertDataQr();
     super.onInit();
   }

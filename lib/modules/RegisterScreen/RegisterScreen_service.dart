@@ -5,6 +5,7 @@ import 'package:markaz_snappy/models/register_model.dart';
 import 'package:markaz_snappy/models/test.dart';
 
 import '../../data/network/api.dart';
+import '../../utils/function.dart';
 
 class RegisterScreenService {
 
