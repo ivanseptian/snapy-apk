@@ -22,7 +22,7 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 9.w),
         child: Column(
@@ -37,7 +37,7 @@ class OtpScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
-                    color: Colors.black),
+                    color: Colors.white),
               ),
             ),
             Gap(15.h),
@@ -93,7 +93,7 @@ class OtpScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
-                    color: ColorsValue.backgroundColor),
+                    color: Colors.white),
               ),
               onTap: () => {
                 otpScreen.requestOTP()

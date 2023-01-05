@@ -7,14 +7,14 @@ class product_model {
   String? tagId;
   String? price;
   String? unitId;
-  Null? discountPctg;
+  String? discountPctg;
   String? discountRp;
   String? priceAfterDiscount;
   String? taxPctg;
   String? taxRp;
   String? priceWithTax;
-  Null? invSKU;
-  Null? invBrand;
+  String? invSKU;
+  String? invBrand;
   String? invQty;
   String? invWidth;
   String? invHeight;

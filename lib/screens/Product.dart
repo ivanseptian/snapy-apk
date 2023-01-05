@@ -20,7 +20,7 @@ class Product extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsValue.backgroundWhite,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class Product extends StatelessWidget {
                       AssetsValue.left_arrow,
                       height: 25.h,
                       width: 25.w,
-                      color: ColorsValue.textColor00,
+                      color: Colors.white,
                     ),
                     onTap: () {
                       Get.back();
@@ -47,7 +47,7 @@ class Product extends StatelessWidget {
                     Get.arguments[1],
                     style: GoogleFonts.poppins(
                         fontSize: 16.sp,
-                        color: ColorsValue.textColor00,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500),
                   ),
                   Container()

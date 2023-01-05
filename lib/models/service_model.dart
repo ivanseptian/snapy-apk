@@ -5,7 +5,7 @@ class service_model {
   String? tagsId;
   String? price;
   String? unitId;
-  Null? discountPctg;
+  String? discountPctg;
   String? discountRp;
   String? priceAfterDiscount;
   String? taxPctg;

@@ -23,7 +23,7 @@ class Branch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsValue.backgroundWhite,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           children: [
@@ -39,7 +39,7 @@ class Branch extends StatelessWidget {
                       AssetsValue.left_arrow,
                       height: 25.h,
                       width: 25.w,
-                      color: ColorsValue.textColor00,
+                      color: Colors.white,
                     ),
                     onTap: () {
                       Get.back();
@@ -49,7 +49,7 @@ class Branch extends StatelessWidget {
                     "Lokasi Cabang",
                     style: GoogleFonts.poppins(
                         fontSize: 16.sp,
-                        color: ColorsValue.textColor00,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500),
                   ),
                   Container()
@@ -64,7 +64,7 @@ class Branch extends StatelessWidget {
                   return GestureDetector(
                     child: Card(
                       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                      color: Colors.white,
+                      color: ColorsValue.textColorCardMembership,
                       child: SizedBox(
                         width: Get.width,
                         child: Column(
@@ -97,14 +97,14 @@ class Branch extends StatelessWidget {
                                       style: GoogleFonts.poppins(
                                           fontSize: 12.0.sp,
                                           fontWeight: FontWeight.w800,
-                                          color: Colors.black),
+                                          color: Colors.white),
                                     ),
                                     Text(
                                       "+62${dataView.mobileNumber}",
                                       style: GoogleFonts.poppins(
                                           fontSize: 12.0.sp,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.black),
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -116,7 +116,7 @@ class Branch extends StatelessWidget {
                                   style: GoogleFonts.roboto(
                                       fontSize: 12.0.sp,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.grey),
+                                      color: Colors.white),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,

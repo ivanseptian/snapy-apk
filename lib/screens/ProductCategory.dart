@@ -23,7 +23,7 @@ class ProductCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsValue.backgroundWhite,
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class ProductCategory extends StatelessWidget {
                       AssetsValue.left_arrow,
                       height: 25.h,
                       width: 25.w,
-                      color: ColorsValue.textColor00,
+                      color: Colors.white,
                     ),
                     onTap: () {
                       Get.back();
@@ -50,7 +50,7 @@ class ProductCategory extends StatelessWidget {
                     "Product Category",
                     style: GoogleFonts.poppins(
                         fontSize: 16.sp,
-                        color: ColorsValue.textColor00,
+                        color: Colors.white,
                         fontWeight: FontWeight.w500),
                   ),
                   Container()
@@ -79,7 +79,7 @@ class ProductCategory extends StatelessWidget {
                               ])
                             },
                             child: Card(
-                                color: Colors.white,
+                                color: ColorsValue.textColorCardMembership,
                                 elevation: 2,
                                 child: CachedNetworkImage(
                                     imageUrl:
