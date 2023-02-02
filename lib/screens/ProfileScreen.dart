@@ -119,7 +119,7 @@ class ProfileScreen extends StatelessWidget {
                       Gap(10.w),
                       GestureDetector(
                         onTap: (){
-
+                          profileScreen.profile();
                         },
                         child: SvgPicture.asset(
                           AssetsValue.refreshIcon,

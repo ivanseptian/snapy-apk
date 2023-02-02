@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:markaz_snappy/modules/HomeScreen/HomeScreen.dart';
 
 import 'package:markaz_snappy/modules/MainScreen/MainScreen.dart';
 
@@ -39,7 +40,7 @@ class MainScreenController extends GetxController {
   void onPageChanged(int page) {
     indexButtonNavigation.value = page;
     if(page == 0) {
-
+      Get.find<HomeScreenController>().getData();
     } else if(page == 1) {
 
     }

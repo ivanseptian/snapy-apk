@@ -32,6 +32,10 @@ class HomeScreenController extends GetxController {
     // await Future.delayed(const Duration(seconds: 3));
     // isLoading.value = false;
     getData();
+    super.onInit();
+  }
+
+  Future<void> getData() async{
     String? token = await Prefs.getString(StringValue.sessionTokenStr);
     this.token.value = token??"";
     userName.value = await Prefs.getString(StringValue.sessionNameStr)??"";
@@ -39,10 +43,7 @@ class HomeScreenController extends GetxController {
     points.value = await Prefs.getString(StringValue.sessionPointStr)??"";
     expired.value = await Prefs.getString(StringValue.sessionExpiredStr)??"";
     memberType.value = await Prefs.getString(StringValue.sessionMemberTypeStr)??"";
-    super.onInit();
-  }
-
-  Future<void> getData() async{
+    print("init home");
     try {
       // CoolAlert.show(
       //     context: Get.context!,

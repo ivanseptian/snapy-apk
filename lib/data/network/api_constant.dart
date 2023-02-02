@@ -3,6 +3,7 @@ part of 'api.dart';
 class ApiUrl {
   static String baseUrl = "https://websnapy.net/snapy/public/api";
   static String registerUrl = '$baseUrl/register';
+  static String profileUrl = '$baseUrl/profile';
   static String loginUrl = '$baseUrl/login';
   static String otpVerificationUrl = '$baseUrl/otp';
   static String otpRequestUrl = '$baseUrl/otp-request';

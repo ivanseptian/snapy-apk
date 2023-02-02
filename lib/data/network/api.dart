@@ -63,6 +63,12 @@ class Api {
     return await _handler.get(ApiUrl.logoutUrl, token);
   }
 
+  static Future profile() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString(StringValue.sessionTokenStr).toString();
+    return await _handler.get(ApiUrl.profileUrl, token);
+  }
+
   static Future branch() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(StringValue.sessionTokenStr).toString();

@@ -4,9 +4,11 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:markaz_snappy/models/login_model.dart';
 import 'package:markaz_snappy/models/no_data.dart';
 
 import 'package:markaz_snappy/modules/ProfileScreen/ProfileScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../config/strings.dart';
 import '../../routes/routes.dart';
@@ -76,6 +78,50 @@ GetSingleTickerProviderStateMixin {
     } catch (e) {
       Get.back();
       Functions.checkErrorPopup(e);
+    }
+  }
+
+  Future<void> profile() async {
+    try {
+      CoolAlert.show(
+          context: Get.context!,
+          type: CoolAlertType.loading,
+          text: StringValue.loading
+      );
+
+      login_model? data = await _service.profile();
+      Get.back();
+      if(data!=null) {
+        setSharePreferences(data);
+      } else {
+        Functions.checkErrorPopup("");
+      }
+    } catch (e) {
+      Get.back();
+      Functions.checkErrorPopup(e);
+    }
+  }
+
+  Future<void> setSharePreferences(login_model it) async {
+    if(it.data != null) {
+      Data data = it.data!;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString(StringValue.sessionAddressStr, data.address??"");
+      await prefs.setString(StringValue.sessionEmailStr, data.loginEmail??"");
+      await prefs.setString(StringValue.sessionExpiredStr, data.expiredDate??"");
+      await prefs.setString(StringValue.sessionLoginIdStr, data.loginId??"");
+      await prefs.setString(StringValue.sessionNameStr, data.loginName??"");
+      await prefs.setString(StringValue.sessionPhoneStr, data.loginPhone??"");
+      await prefs.setString(StringValue.sessionPointStr, (data.point??0).toString());
+      await prefs.setString(StringValue.sessionMemberTypeStr, (data.memberType??"reguler").toLowerCase());
+      name.value = data.loginName??"";
+      id.value = data.loginId??"";
+      email.value = data.loginEmail??"";
+      points.value = (data.point??0).toString();
+      expired.value = data.expiredDate??"";
+      address.value = data.address??"";
+      phone.value = data.loginPhone??"";
+      memberType.value = (data.memberType??"reguler").toLowerCase();
     }
   }
 

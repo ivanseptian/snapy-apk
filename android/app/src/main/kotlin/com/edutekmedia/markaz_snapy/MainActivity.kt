@@ -1,4 +1,4 @@
-package com.example.markaz_snappy
+package com.edutekmedia.markaz_snapy
 
 import io.flutter.embedding.android.FlutterActivity
 
