@@ -66,7 +66,7 @@ GetSingleTickerProviderStateMixin {
       NoData? noData = await _service.logout();
       Get.back();
       if(noData!=null) {
-        if(noData.message == "You have successfully logged out"){
+        if(noData.message == "You have successfully logged out" || noData.message?.toLowerCase() == "unauthenticated."){
           Prefs.clear();
           Get.offAllNamed(Routes.root);
         } else {
