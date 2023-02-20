@@ -341,7 +341,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Gap(5.w),
                     Text(
-                      "Snappy",
+                      "Snapy",
                       style: GoogleFonts.poppins(
                           fontSize: 25.sp,
                           color: Colors.white,
@@ -349,7 +349,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      profileScreen.memberType.value == "reguler"?"Pass":"Reward",
+                      profileScreen.memberType.value.toLowerCase() != "premium"?"Pass":"Reward",
                       style: GoogleFonts.poppins(
                           fontSize: 25.sp,
                           color: ColorsValue.backgroundColor,
@@ -362,7 +362,7 @@ class ProfileScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    profileScreen.memberType.value != "reguler"?
+                    profileScreen.memberType.value.toLowerCase() == "premium"?
                     Text(
                       "Exp: ${profileScreen.expired}",
                       style: GoogleFonts.poppins(

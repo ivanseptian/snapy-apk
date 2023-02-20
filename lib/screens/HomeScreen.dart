@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                                                 ),
                                                 Gap(2.w),
                                                 Text(
-                                                  "Snappy",
+                                                  "Snapy",
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 15.sp,
                                                       color: Colors.white,
@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Text(
-                                                  homeScreen.memberType.value == "reguler"?"Pass":"Reward",
+                                                  homeScreen.memberType.value.toLowerCase() != "premium"?"Pass":"Reward",
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 15.sp,
                                                       color: ColorsValue.backgroundColor,
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
-                                                homeScreen.memberType.value != "reguler"?
+                                                homeScreen.memberType.value.toLowerCase() == "premium"?
                                                 Text(
                                                   "Exp: ${homeScreen.expired}",
                                                   style: GoogleFonts.poppins(

@@ -92,7 +92,12 @@ GetSingleTickerProviderStateMixin {
       login_model? data = await _service.profile();
       Get.back();
       if(data!=null) {
-        setSharePreferences(data);
+        if(data.message?.toLowerCase() == "unauthenticated."){
+          Prefs.clear();
+          Get.offAllNamed(Routes.root);
+        } else {
+          setSharePreferences(data);
+        }
       } else {
         Functions.checkErrorPopup("");
       }
@@ -113,7 +118,7 @@ GetSingleTickerProviderStateMixin {
       await prefs.setString(StringValue.sessionNameStr, data.loginName??"");
       await prefs.setString(StringValue.sessionPhoneStr, data.loginPhone??"");
       await prefs.setString(StringValue.sessionPointStr, (data.point??0).toString());
-      await prefs.setString(StringValue.sessionMemberTypeStr, (data.memberType??"reguler").toLowerCase());
+      await prefs.setString(StringValue.sessionMemberTypeStr, (data.memberType??"").toLowerCase());
       name.value = data.loginName??"";
       id.value = data.loginId??"";
       email.value = data.loginEmail??"";
@@ -121,7 +126,7 @@ GetSingleTickerProviderStateMixin {
       expired.value = data.expiredDate??"";
       address.value = data.address??"";
       phone.value = data.loginPhone??"";
-      memberType.value = (data.memberType??"reguler").toLowerCase();
+      memberType.value = (data.memberType??"").toLowerCase();
     }
   }
 
@@ -131,7 +136,7 @@ GetSingleTickerProviderStateMixin {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['no'] = id.value;
     data['no_ex'] = null;
-    data['type'] = "Reguler";
+    data['type'] = memberType.value;
     data['displayName'] = name.value;
     data['email'] = email.value;
     data['phoneNumber'] = phone.value;

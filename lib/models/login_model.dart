@@ -53,7 +53,7 @@ class Data {
     address = json['address'];
     point = json['point'];
     expiredDate = json['expiredDate'];
-    memberType = json['memberType'];
+    memberType = json['type'].toString();
   }
 
   Map<String, dynamic> toJson() {
