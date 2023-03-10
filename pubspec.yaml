@@ -49,7 +49,7 @@ flutter_app_name:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo/logo.png"
+  image_path: "assets/logo/logo_ios.png"
 
 flutter:
   uses-material-design: true
