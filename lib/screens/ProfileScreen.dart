@@ -48,9 +48,19 @@ class ProfileScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           // Get.toNamed(Routes.editProfileScreen);
+                          CoolAlert.show(
+                              context: context,
+                              type: CoolAlertType.confirm,
+                              text: "",
+                              title: "apakah Anda yakin untuk menghapus akun anda secara permanen?",
+                              onCancelBtnTap: () => Get.back(),
+                              onConfirmBtnTap: () {
+                                profileScreen.deleteAccount();
+                              }
+                          );
                         },
                         child: Text(
-                          "Account",
+                          "Hapus Akun",
                           style: GoogleFonts.poppins(
                               fontSize: 16.sp,
                               color: Colors.white,
@@ -240,68 +250,69 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),),
         Gap(15.h),
-        Padding(padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Alamat",
-                style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),
-              ),
-              Gap(3.h),
-              Text(
-                "${profileScreen.address}",
-                style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white
-                ),
-              ),
-              Gap(5.h),
-              Divider(
-                  color: ColorsValue.psColorE8
-              )
-            ],
-          ),),
-        Gap(15.h),
-        Padding(padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Text(
-            "Legal Information",
-            style: GoogleFonts.poppins(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.white
-            ),
-          ),),
-        Gap(10.h),
-        Padding(padding: EdgeInsets.only(right: 16.w, left: 25.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Term and Conditions",
-                style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),
-              ),
-              Gap(10.h),
-              Text(
-                "Privacy Policy",
-                style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
-                ),
-              ),
-              Gap(5.h),
-            ],
-          ),),
+
+        // Padding(padding: EdgeInsets.symmetric(horizontal: 16.w),
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Text(
+        //         "Alamat",
+        //         style: GoogleFonts.poppins(
+        //             fontSize: 16.sp,
+        //             fontWeight: FontWeight.w500,
+        //             color: Colors.white
+        //         ),
+        //       ),
+        //       Gap(3.h),
+        //       Text(
+        //         "${profileScreen.address}",
+        //         style: GoogleFonts.poppins(
+        //             fontSize: 14.sp,
+        //             fontWeight: FontWeight.w400,
+        //             color: Colors.white
+        //         ),
+        //       ),
+        //       Gap(5.h),
+        //       Divider(
+        //           color: ColorsValue.psColorE8
+        //       )
+        //     ],
+        //   ),),
+        // Gap(15.h),
+        // Padding(padding: EdgeInsets.symmetric(horizontal: 16.w),
+        //   child: Text(
+        //     "Legal Information",
+        //     style: GoogleFonts.poppins(
+        //         fontSize: 16.sp,
+        //         fontWeight: FontWeight.w500,
+        //         color: Colors.white
+        //     ),
+        //   ),),
+        // Gap(10.h),
+        // Padding(padding: EdgeInsets.only(right: 16.w, left: 25.w),
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Text(
+        //         "Term and Conditions",
+        //         style: GoogleFonts.poppins(
+        //             fontSize: 16.sp,
+        //             fontWeight: FontWeight.w500,
+        //             color: Colors.white
+        //         ),
+        //       ),
+        //       Gap(10.h),
+        //       Text(
+        //         "Privacy Policy",
+        //         style: GoogleFonts.poppins(
+        //             fontSize: 16.sp,
+        //             fontWeight: FontWeight.w500,
+        //             color: Colors.white
+        //         ),
+        //       ),
+        //       Gap(5.h),
+        //     ],
+        //   ),),
       ],
     );
   }

@@ -15,6 +15,17 @@ class ProfileScreenService {
     }
   }
 
+  Future<NoData?> deleteAccount() async {
+    try {
+      var res = await Api.deleteAccount();
+      NoData dataJson;
+      dataJson = NoData.fromJson(res);
+      return dataJson;
+    } catch (e) {
+      return null;
+    }
+  }
+
   Future<login_model?> profile() async {
     try {
       var res = await Api.profile();

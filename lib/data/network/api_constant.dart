@@ -14,5 +14,6 @@ class ApiUrl {
   static String servicesUrl = '$baseUrl/services';
   static String bannersUrl = '$baseUrl/banners';
   static String resetPasswordUrl = '$baseUrl/send-verification';
+  static String deleteAccountUrl = '$baseUrl/delete-account';
 
 }

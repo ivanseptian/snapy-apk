@@ -4,6 +4,7 @@ import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:markaz_snappy/config/config.dart';
 import 'package:markaz_snappy/models/login_model.dart';
 import 'package:markaz_snappy/models/no_data.dart';
 
@@ -67,6 +68,40 @@ GetSingleTickerProviderStateMixin {
       Get.back();
       if(noData!=null) {
         if(noData.message == "You have successfully logged out" || noData.message?.toLowerCase() == "unauthenticated."){
+          Prefs.clear();
+          Get.offAllNamed(Routes.root);
+        } else {
+          CoolAlert.show(context: Get.context!, type: CoolAlertType.info, text: noData.message);
+        }
+      } else {
+        Functions.checkErrorPopup("");
+      }
+    } catch (e) {
+      Get.back();
+      Functions.checkErrorPopup(e);
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    try {
+      CoolAlert.show(
+          context: Get.context!,
+          type: CoolAlertType.loading,
+          text: StringValue.loading
+      );
+
+      NoData? noData = await _service.deleteAccount();
+      Get.back();
+      if(noData!=null) {
+        if(noData.message == "Your account has been successfully deleted."){
+          Get.snackbar(
+            "Your account has been successfully deleted.",
+            "",
+            snackPosition: SnackPosition.TOP,
+            colorText: Colors.black,
+            borderRadius: 10,
+            backgroundColor:  Colors.white,
+          );
           Prefs.clear();
           Get.offAllNamed(Routes.root);
         } else {

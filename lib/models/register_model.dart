@@ -3,6 +3,7 @@ class register_model {
   String? accessToken;
   String? tokenType;
   String? message;
+  Errors? errors;
 
   register_model({this.data, this.accessToken, this.tokenType, this.message});
 
@@ -11,6 +12,7 @@ class register_model {
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     message = json['message'];
+    errors = json['errors'] != null ? new Errors.fromJson(json['errors']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -20,6 +22,25 @@ class register_model {
     }
     data['access_token'] = this.accessToken;
     data['token_type'] = this.tokenType;
+    return data;
+  }
+}
+
+class Errors {
+  List<String>? loginEmail;
+  List<String>? loginPhone;
+
+  Errors({this.loginEmail, this.loginPhone});
+
+  Errors.fromJson(Map<String, dynamic> json) {
+    loginEmail = json['LoginEmail'] != null ? json['LoginEmail'].cast<String>() : null;
+    loginPhone = json['LoginPhone'] != null ? json['LoginPhone'].cast<String>() : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['LoginEmail'] = loginEmail;
+    data['LoginPhone'] = loginPhone;
     return data;
   }
 }

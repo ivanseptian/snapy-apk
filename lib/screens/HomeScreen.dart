@@ -377,7 +377,7 @@ class HomeScreen extends StatelessWidget {
                             CircularProgressIndicator(),
                         errorWidget: (context, url, error) =>
                             const Icon(Icons.error),
-                        fit: BoxFit.fitWidth),
+                        fit: BoxFit.fill),
                   );
                 },
               );

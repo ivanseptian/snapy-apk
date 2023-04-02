@@ -27,26 +27,26 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          Positioned(
-            top: -99.95,
-            left: -160,
-            child: SvgPicture.asset(
-              AssetsValue.ellipse_22,
-              width: 674.w,
-              height: 262.h,
-              color: ColorsValue.backgroundColor,
-            ),
-          ),
-          Positioned(
-            top: -66.91,
-            left: -71.71,
-            child: SvgPicture.asset(
-              AssetsValue.ellipse_21,
-              width: 622.55.w,
-              height: 405.13.h,
-              color: ColorsValue.secondaryColor,
-            ),
-          ),
+          // Positioned(
+          //   top: -99.95,
+          //   left: -160,
+          //   child: SvgPicture.asset(
+          //     AssetsValue.ellipse_22,
+          //     width: 674.w,
+          //     height: 262.h,
+          //     color: ColorsValue.backgroundColor,
+          //   ),
+          // ),
+          // Positioned(
+          //   top: -66.91,
+          //   left: -71.71,
+          //   child: SvgPicture.asset(
+          //     AssetsValue.ellipse_21,
+          //     width: 622.55.w,
+          //     height: 405.13.h,
+          //     color: ColorsValue.secondaryColor,
+          //   ),
+          // ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

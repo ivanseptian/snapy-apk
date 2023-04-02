@@ -51,6 +51,12 @@ class Api {
     }, token);
   }
 
+  static Future deleteAccount() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString(StringValue.sessionTokenStr).toString();
+    return await _handler.post(ApiUrl.deleteAccountUrl,null, token);
+  }
+
   static Future otpRequestUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(StringValue.sessionTokenStr).toString();

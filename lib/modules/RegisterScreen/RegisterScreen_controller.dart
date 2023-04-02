@@ -59,7 +59,27 @@ class RegisterScreenController extends GetxController {
         if(token!=null && token.isNotEmpty) {
           setSharePreferences(token, registerModel.data!);
         } else {
-          Functions.checkErrorPopup(message);
+          Errors? errorsRegister = registerModel.errors;
+          var messageError = "";
+          if(errorsRegister != null) {
+            if(errorsRegister.loginEmail != null) {
+              for (var it in errorsRegister.loginEmail!) {
+                messageError = messageError + it;
+              }
+            }
+            if(errorsRegister.loginPhone != null) {
+              for (var it in errorsRegister.loginPhone!) {
+                if(it == "Phone number is not valid") {
+                  messageError = messageError + it + ", Please use a valid Indonesian phone format.";
+                } else {
+                  messageError = messageError + it;
+                }
+              }
+            }
+          } else {
+            messageError = message;
+          }
+          Functions.checkErrorPopup(messageError);
         }
       } else {
         Functions.checkErrorPopup("");
