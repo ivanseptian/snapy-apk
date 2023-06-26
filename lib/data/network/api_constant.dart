@@ -1,7 +1,7 @@
 part of 'api.dart';
 
 class ApiUrl {
-  static String baseUrl = "https://websnapy.net/snapy/public/api";
+  static String baseUrl = "https://snapyapp.id/snapy/public/api";
   static String registerUrl = '$baseUrl/register';
   static String profileUrl = '$baseUrl/profile';
   static String loginUrl = '$baseUrl/login';

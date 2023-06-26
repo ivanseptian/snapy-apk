@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
-                                                homeScreen.memberType.value.toLowerCase() == "premium"?
+                                                Flexible(child: homeScreen.memberType.value.toLowerCase() == "premium"?
                                                 Text(
                                                   "Exp: ${homeScreen.expired}",
                                                   style: GoogleFonts.poppins(
@@ -143,8 +143,8 @@ class HomeScreen extends StatelessWidget {
                                                       color: ColorsValue.backgroundWhite,
                                                       fontWeight: FontWeight.w400
                                                   ),
-                                                ):Container(),
-                                                Text(
+                                                ):Container(), flex: 1,),
+                                                Flexible(child: Text(
                                                   "No: ${homeScreen.id}",
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 8.sp,
@@ -152,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                                                       color: ColorsValue.backgroundWhite,
                                                       fontWeight: FontWeight.w400
                                                   ),
-                                                ),
+                                                ), flex: 1,),
                                               ],
                                             )
                                           ],

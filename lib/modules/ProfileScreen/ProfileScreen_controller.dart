@@ -162,6 +162,7 @@ GetSingleTickerProviderStateMixin {
       address.value = data.address??"";
       phone.value = data.loginPhone??"";
       memberType.value = (data.memberType??"").toLowerCase();
+      convertDataQr();
     }
   }
 

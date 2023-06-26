@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       builder: (context , child) {
         return GetMaterialApp(
           getPages: routes,
-          debugShowCheckedModeBanner: true,
+          debugShowCheckedModeBanner: false,
           title: StringValue.appTitle,
           theme: appTheme,
           initialRoute: Routes.root,

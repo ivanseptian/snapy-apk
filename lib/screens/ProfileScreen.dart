@@ -114,40 +114,50 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Gap(16.h),
                 Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "${profileScreen.name} (${profileScreen.id})",
-                        style: GoogleFonts.poppins(
-                          fontSize: 20.sp,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      Gap(10.w),
-                      GestureDetector(
-                        onTap: (){
-                          profileScreen.profile();
-                        },
-                        child: SvgPicture.asset(
-                          AssetsValue.refreshIcon,
-                          height: 25.h,
-                          width: 25.w,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
+                  child: Text(
+                    "${profileScreen.name}",
+                    style: GoogleFonts.poppins(
+                      fontSize: 20.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        profileScreen.profile();
+                      },
+                      child: SvgPicture.asset(
+                        AssetsValue.refreshIcon,
+                        height: 25.h,
+                        width: 25.w,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Gap(10.w),
+                    Flexible(child: Text(
+                      "${profileScreen.id}",
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      textAlign: TextAlign.center,
+                    )),
+                  ],
                 ),
                 Center(
                   child: Text(
                     "${profileScreen.email}",
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
                         fontSize: 16.sp,
                         color: Colors.white,
-                        fontWeight: FontWeight.w400
+                        fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -373,7 +383,7 @@ class ProfileScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    profileScreen.memberType.value.toLowerCase() == "premium"?
+                    Flexible(child: profileScreen.memberType.value.toLowerCase() == "premium"?
                     Text(
                       "Exp: ${profileScreen.expired}",
                       style: GoogleFonts.poppins(
@@ -382,8 +392,8 @@ class ProfileScreen extends StatelessWidget {
                           color: ColorsValue.backgroundWhite,
                           fontWeight: FontWeight.w400
                       ),
-                    ):Container(),
-                    Text(
+                    ):Container(), flex: 1,),
+                    Flexible(child: Text(
                       "No: ${profileScreen.id}",
                       style: GoogleFonts.poppins(
                           fontSize: 14.sp,
@@ -391,7 +401,7 @@ class ProfileScreen extends StatelessWidget {
                           color: ColorsValue.backgroundWhite,
                           fontWeight: FontWeight.w400
                       ),
-                    ),
+                    ), flex: 1,),
                   ],
                 )
               ],
