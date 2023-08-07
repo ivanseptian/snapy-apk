@@ -51,14 +51,14 @@ class Dialogs {
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(color: Theme.of(context).accentColor),
+                          side: BorderSide(color: Theme.of(context).colorScheme.secondary),
                         ),
                         backgroundColor: Colors.white
                       ),
                       child: Text(
                         'Tidak',
                         style: GoogleFonts.roboto(
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                       onPressed: () => Navigator.pop(context),
@@ -73,7 +73,7 @@ class Dialogs {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                         onPrimary: Colors.black87,
-                        primary: Theme.of(context).accentColor,
+                        primary: Theme.of(context).colorScheme.secondary,
                       ),
                       child: Text(
                         'Ya',
