@@ -8,12 +8,16 @@ import 'package:markaz_snappy/modules/HelpScreen/HelpScreen.dart';
 import 'package:markaz_snappy/modules/HomeScreen/HomeScreen.dart';
 
 import 'package:markaz_snappy/modules/MainScreen/MainScreen.dart';
+import 'package:markaz_snappy/modules/Notification/notification.dart';
 import 'package:markaz_snappy/modules/ProfileScreen/ProfileScreen.dart';
+import 'package:markaz_snappy/modules/Transaction/transaction.dart';
 import 'package:markaz_snappy/modules/history/history.dart';
 import 'package:markaz_snappy/modules/history/history_controller.dart';
 import 'package:markaz_snappy/screens/HelpScreen.dart';
 import 'package:markaz_snappy/screens/HomeScreen.dart';
+import 'package:markaz_snappy/screens/NotificationScreen.dart';
 import 'package:markaz_snappy/screens/ProfileScreen.dart';
+import 'package:markaz_snappy/screens/TransactionScreen.dart';
 import 'package:markaz_snappy/screens/history.dart';
 
 import '../config/assets.dart';
@@ -41,7 +45,9 @@ class MainScreen extends StatelessWidget {
                 children: <Widget>[
                   HomeScreen(Get.put(HomeScreenController(HomeScreenService()))),
                   // History(Get.put(HistoryController(HistoryService()))),
-                  HelpScreen(Get.put(HelpScreenController(HelpScreenService()))),
+                  // HelpScreen(Get.put(HelpScreenController(HelpScreenService()))),
+                  TransactionScreen(Get.put(TransactionController(TransactionService()))),
+                  NotificationScreen(Get.put(NotificationController(NotificationService()))),
                   ProfileScreen(Get.put(ProfileScreenController(ProfileScreenService()))),
                 ],
               ),
@@ -85,18 +91,46 @@ class MainScreen extends StatelessWidget {
               //   ),
               //   label: StringValue.historyTxt,
               // ),
+              // BottomNavigationBarItem(
+              //   activeIcon: SvgPicture.asset(
+              //     AssetsValue.helpActive,
+              //     height: 20.h,
+              //     width: 20.w,
+              //   ),
+              //   icon: SvgPicture.asset(
+              //     AssetsValue.helpInactive,
+              //     height: 20.h,
+              //     width: 20.w,
+              //   ),
+              //   label: StringValue.helpTxt,
+              // ),
               BottomNavigationBarItem(
                 activeIcon: SvgPicture.asset(
-                  AssetsValue.helpActive,
+                  AssetsValue.transactionActive,
                   height: 20.h,
                   width: 20.w,
                 ),
                 icon: SvgPicture.asset(
-                  AssetsValue.helpInactive,
+                  AssetsValue.transactionInactive,
                   height: 20.h,
                   width: 20.w,
                 ),
-                label: StringValue.helpTxt,
+                label: StringValue.transactionTxt,
+              ),
+              BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
+                  AssetsValue.notificationIcon,
+                  color: ColorsValue.iconColor,
+                  height: 20.h,
+                  width: 20.w,
+                ),
+                icon: SvgPicture.asset(
+                  AssetsValue.notificationIcon,
+                  color: ColorsValue.backgroundWhite,
+                  height: 20.h,
+                  width: 20.w,
+                ),
+                label: StringValue.notificationTxt,
               ),
               BottomNavigationBarItem(
                 activeIcon: SvgPicture.asset(
@@ -117,7 +151,7 @@ class MainScreen extends StatelessWidget {
             elevation: 15,
             onTap: (index) {
               print("debug: $index");
-              if(index == 2 && mainScreenController.token.value == "") {
+              if((index == 1 || index == 2 || index == 3) && mainScreenController.token.value == "") {
                 Get.offNamed(Routes.loginScreen);
               } else {
                 mainScreenController.navigationTapped(index);

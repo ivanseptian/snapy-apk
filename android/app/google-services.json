@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382967248923",
+    "project_id": "snapymarkaz-9768f",
+    "storage_bucket": "snapymarkaz-9768f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382967248923:android:1d7d563be131f32a1da0be",
+        "android_client_info": {
+          "package_name": "com.edutekmedia.markaz_snapy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArC4W0BoiDS5w_u6v8rINxSixSyEnlbSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

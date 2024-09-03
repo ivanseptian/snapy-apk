@@ -1,5 +1,5 @@
-import 'package:colour/colour.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      child: new Scaffold(
+      child: Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
         children: [
@@ -95,75 +95,123 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Gap(46.h),
-                      Obx(() => Form(
-                            key: loginScreen.formKey,
+                      Obx(() => loginScreen.loginType.value == 1 ?
+                      Form(
+                            key: loginScreen.formOtpKey,
                             child: Column(
                               children: [
                                 Padding(
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 41.w),
-                                  child: InputFieldPrefix(
-                                    labelText: StringValue.emailTxt,
-                                    key: loginScreen.inputTxtEmailKey,
-                                    editingController:
-                                        loginScreen.inputTxtEmail.value,
-                                    isRequired: true,
-                                    validate: (text) {
+                                  EdgeInsets.symmetric(horizontal: 41.w),
+                                  child: InputFieldPrefix(labelText: StringValue.rsNoHandphoneTxt,
+                                    key: loginScreen.inputTxtPhoneKey,
+                                    editingController: loginScreen.inputTxtPhone.value,
+                                    isRequired: true, validate: (text) {
                                       if (text == null || text.isEmpty) {
                                         return StringValue.fieldRequired;
                                       }
                                       return null;
                                     },
-                                    inputAction: TextInputAction.next,
-                                    inputType: TextInputType.emailAddress,
-                                    prefixIcon: _prefixEmail(),
-                                    textSize: 12,
-                                    textColor: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    hintColor: ColorsValue.textColorD0,
-                                  ),
+                                    textInputFormatter: [
+                                      FilteringTextInputFormatter.allow(RegExp("[0-9\u0660-\u0669]")),
+                                      FilteringTextInputFormatter.deny(RegExp(r'^6+')),
+                                      FilteringTextInputFormatter.deny(RegExp(r'^2+')),
+                                      FilteringTextInputFormatter.deny(RegExp(r'^0+'))
+                                    ],
+                                    inputAction: TextInputAction.done, inputType: TextInputType.phone,
+                                    prefixIcon: _prefixNoHp(), textSize: 12, textColor: Colors.white,
+                                    fontWeight: FontWeight.w500, hintColor: ColorsValue.textColorAA,),
                                 ),
-                                Gap(35.2.h),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 41.w),
-                                  child: InputFieldPrefix(
-                                    labelText: StringValue.passwordTxt,
-                                    key: loginScreen.inputTxtPasswordKey,
-                                    editingController:
-                                        loginScreen.inputTxtPassword.value,
-                                    isRequired: true,
-                                    validate: (text) {
-                                      if (text == null || text.isEmpty) {
-                                        return StringValue.fieldRequired;
-                                      } else if (text.length < 8) {
-                                        return StringValue
-                                            .fieldSandiMinimal8Char;
-                                      }
-                                      return null;
-                                    },
-                                    inputAction: TextInputAction.done,
-                                    inputType: TextInputType.text,
-                                    isObsecure:
-                                        loginScreen.isObsecurePass.value,
-                                    suffixIcon:
-                                        loginScreen.isObsecurePass.value == true
-                                            ? _suffixPassword(AssetsValue.show)
-                                            : _suffixPassword(AssetsValue.hide),
-                                    onSuffixIconClick: () {
-                                      loginScreen.showHidePassword();
-                                    },
-                                    prefixIcon: _prefixPassword(),
-                                    textSize: 12,
-                                    textColor: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    hintColor: ColorsValue.textColorD0,
-                                  ),
-                                )
                               ],
                             ),
-                          )),
+                          ) :
+                      Form(
+                        key: loginScreen.formKey,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 41.w),
+                              child: InputFieldPrefix(
+                                labelText: StringValue.emailTxt,
+                                key: loginScreen.inputTxtEmailKey,
+                                editingController:
+                                loginScreen.inputTxtEmail.value,
+                                isRequired: true,
+                                validate: (text) {
+                                  if (text == null || text.isEmpty) {
+                                    return StringValue.fieldRequired;
+                                  }
+                                  return null;
+                                },
+                                inputAction: TextInputAction.next,
+                                inputType: TextInputType.emailAddress,
+                                prefixIcon: _prefixEmail(),
+                                textSize: 12,
+                                textColor: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                hintColor: ColorsValue.textColorD0,
+                              ),
+                            ),
+                            Gap(35.2.h),
+                            Padding(
+                              padding:
+                              EdgeInsets.symmetric(horizontal: 41.w),
+                              child: InputFieldPrefix(
+                                labelText: StringValue.passwordTxt,
+                                key: loginScreen.inputTxtPasswordKey,
+                                editingController:
+                                loginScreen.inputTxtPassword.value,
+                                isRequired: true,
+                                validate: (text) {
+                                  if (text == null || text.isEmpty) {
+                                    return StringValue.fieldRequired;
+                                  } else if (text.length < 8) {
+                                    return StringValue
+                                        .fieldSandiMinimal8Char;
+                                  }
+                                  return null;
+                                },
+                                inputAction: TextInputAction.done,
+                                inputType: TextInputType.text,
+                                isObsecure:
+                                loginScreen.isObsecurePass.value,
+                                suffixIcon:
+                                loginScreen.isObsecurePass.value == true
+                                    ? _suffixPassword(AssetsValue.show)
+                                    : _suffixPassword(AssetsValue.hide),
+                                onSuffixIconClick: () {
+                                  loginScreen.showHidePassword();
+                                },
+                                prefixIcon: _prefixPassword(),
+                                textSize: 12,
+                                textColor: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                hintColor: ColorsValue.textColorD0,
+                              ),
+                            )
+                          ],
+                        ),
+                      )),
                       Gap(22.52.h),
+                      GestureDetector(
+                        onTap: () {
+                          loginScreen.changeLoginType();
+                        },
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Obx(() => Text(
+                            loginScreen.loginType.value == 1 ?
+                            "Coba masuk dengan email & password" :
+                            "Coba masuk dengan Whatsapp OTP",
+                            style: GoogleFonts.poppins(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Gap(10.h),
                       GestureDetector(
                         onTap: () {
                           Get.toNamed(Routes.forgetPasswordScreen);
@@ -208,8 +256,14 @@ class LoginScreen extends StatelessWidget {
                       text: StringValue.masukTxt,
                       color: ColorsValue.backgroundColor,
                       onPress: () {
-                        if(loginScreen.formKey.currentState!.validate()){
-                          loginScreen.submitLogin();
+                        if(loginScreen.loginType.value == 1) {
+                          if(loginScreen.formOtpKey.currentState!.validate()){
+                            loginScreen.submitLoginByOtp();
+                          }
+                        } else {
+                          if(loginScreen.formKey.currentState!.validate()){
+                            loginScreen.submitLogin();
+                          }
                         }
                       },
                       height: 50,
@@ -277,6 +331,35 @@ class LoginScreen extends StatelessWidget {
           color: Colors.white,
         ),
         Gap(10.5.w),
+        Container(
+          color: ColorsValue.borderSideInputText1Color,
+          height: 24.26.h,
+          width: 1.w,
+        ),
+        Gap(18.35.w)
+      ],
+    );
+  }
+
+  Widget _prefixNoHp(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // SvgPicture.asset(
+        //   AssetsValue.smartphone,
+        //   height: 18.h,
+        //   width: 12.6.w,
+        // ),
+        Text(
+          "+62",
+          style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 10.sp,
+              fontWeight: FontWeight.w500
+          ),
+        ),
+        Gap(10.w),
         Container(
           color: ColorsValue.borderSideInputText1Color,
           height: 24.26.h,

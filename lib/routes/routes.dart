@@ -18,8 +18,10 @@ import 'package:markaz_snappy/screens/OtpScreen.dart';
 import 'package:markaz_snappy/screens/ProductCategory.dart';
 import 'package:markaz_snappy/screens/RegisterScreen.dart';
 
+import '../modules/OtpLoginScreen/OtpLoginScreen_bindings.dart';
 import '../modules/ProductCategory/ProductCategory_bindings.dart';
 import '../modules/splash_screen/splash_screen_bindings.dart';
+import '../screens/OtpLoginScreen.dart';
 import '../screens/Product.dart';
 import '../screens/splash.dart';
 
@@ -34,6 +36,7 @@ class Routes {
   static const String product = "/product";
   static const String branch = "/branch";
   static const String otpScreen = "/otp_screen";
+  static const String otpLoginScreen = "/otp_login_screen";
 }
 
 final List<GetPage> routes = [
@@ -47,4 +50,5 @@ final List<GetPage> routes = [
   GetPage(name: Routes.product, page: () => Product(Get.find()), binding: ProductBindings()),
   GetPage(name: Routes.branch, page: () => Branch(Get.find()), binding: BranchBindings()),
   GetPage(name: Routes.otpScreen, page: () => OtpScreen(Get.find()), binding: OtpScreenBindings()),
+  GetPage(name: Routes.otpLoginScreen, page: () => OtpLoginScreen(Get.find()), binding: OtpLoginScreenBindings()),
 ];

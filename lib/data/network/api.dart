@@ -28,18 +28,20 @@ class Api {
     return await _handler.get("https://dummyjson.com/products/1", "");
   }
 
-  static Future loginUser(String LoginEmail, String password) async {
+  static Future loginUser(String LoginEmail, String password, String firebaseToken) async {
     return await _handler.post(ApiUrl.loginUrl, {
       'LoginEmail': LoginEmail,
-      'password': password
+      'password': password,
+      'firebaseToken': firebaseToken,
     }, "");
   }
 
-  static Future otpVerificationUser(String otp) async {
+  static Future otpVerificationUser(String otp, String firebaseToken) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(StringValue.sessionTokenStr).toString();
     return await _handler.post(ApiUrl.otpVerificationUrl, {
-      'otp': otp
+      'otp': otp,
+      'firebaseToken': firebaseToken,
     }, token);
   }
 
@@ -103,6 +105,37 @@ class Api {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString(StringValue.sessionTokenStr).toString();
     return await _handler.get(ApiUrl.servicesUrl, token);
+  }
+
+  static Future notificationData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString(StringValue.sessionTokenStr).toString();
+    return await _handler.get(ApiUrl.notificationUrl, token);
+  }
+
+  static Future transactionData(String page, String limit) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? token = prefs.getString(StringValue.sessionTokenStr).toString();
+    String? loginId = prefs.getString(StringValue.sessionLoginIdStr);
+    return await _handler.post(ApiUrl.transactionUrl, {
+      'page': page,
+      'limit': limit,
+      'loginId': loginId,
+    }, token);
+  }
+
+  static Future otpLoginRequestData(String loginPhone) async {
+    return await _handler.post(ApiUrl.otpLoginRequestUrl, {
+      'loginPhone': loginPhone
+    }, "");
+  }
+
+  static Future otpLoginCheckData(String loginPhone, String otp, String firebaseToken) async {
+    return await _handler.post(ApiUrl.otpLoginCheckUrl, {
+      'loginPhone': loginPhone,
+      'otp': otp,
+      'firebaseToken': firebaseToken
+    }, "");
   }
 
 }

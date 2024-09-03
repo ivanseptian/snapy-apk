@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../data/network/api.dart';
 import '../../models/login_model.dart';
 import '../../models/no_data.dart';
@@ -33,6 +35,7 @@ class ProfileScreenService {
       dataJson = login_model.fromJson(res);
       return dataJson;
     } catch (e) {
+      debugPrint(e.toString());
       return null;
     }
   }

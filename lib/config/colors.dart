@@ -6,11 +6,13 @@ class ColorsValue {
   static Color backgroundColor = const Color(0xffe85c26);
   static Color secondaryColor = const Color(0xffF4CD18);
   static Color cursorColor = const Color(0xffE85C26);
+  static Color iconColor = const Color(0xffFB4F00);
   static Color borderSideInputText1Color = const Color(0xffC1C7D0);
   static Color borderSideInputText2Color = const Color(0xffe85c26);
 
   static Color backgroundColorSplashScreen = const Color(0xffFFFFFF);
   static Color backgroundColorLoginScreen = const Color(0xffFFFFFF);
+  static Color backgroundCard = const Color(0xff212121);
   static Color backgroundWhite = const Color(0xffFFFFFF);
   static Color textColor2D = const Color(0xff181D2D);
   static Color textColorAA = const Color(0xffAAAAAA);
@@ -19,6 +21,20 @@ class ColorsValue {
   static Color textColorCardMembership = const Color(0xff343333);
   static Color textColor59 = const Color(0xff324A59);
   static Color textColorFF = const Color(0xffFFFFFF);
+  static LinearGradient linearGradientCard1 = const LinearGradient(
+    colors: [
+      Color(0xff212121),
+      Color(0xff414141),
+      Color(0xff5b5b5b),
+    ],
+  );
+  static LinearGradient linearGradientProgress1 = const LinearGradient(
+    colors: [
+      Color(0xffe85c26),
+      Color(0xffe77144),
+      Color(0xffe38c6b),
+    ],
+  );
 
   static Color psColor97 = const Color(0xff979797);
   static Color psColor4D = const Color(0xff0E654D);

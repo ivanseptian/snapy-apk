@@ -17,36 +17,33 @@ class HelpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: ListView(
-            shrinkWrap: true,
+    return SafeArea(child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    AssetsValue.logo,
-                    height: 25.h,
-                    width: 25.w,
-                  )
-                ],
-              ),
-              Gap(20.h),
-              Text(
-                StringValue.helpString,
-                style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white),
-              ),
+              Image.asset(
+                AssetsValue.logo,
+                height: 25.h,
+                width: 25.w,
+              )
             ],
           ),
-        )
+          Gap(20.h),
+          Text(
+            StringValue.helpString,
+            style: GoogleFonts.poppins(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w300,
+                color: Colors.white),
+          ),
+        ],
+      ),
     ));
   }
 }

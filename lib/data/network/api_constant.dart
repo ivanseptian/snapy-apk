@@ -1,7 +1,8 @@
 part of 'api.dart';
 
 class ApiUrl {
-  static String baseUrl = "https://snapyapp.id/snapy/public/api";
+  // static String baseUrl = "https://snapyapp.id/snapy/public/api";
+  static String baseUrl = "https://uatapi.snapyapp.id/public/api";
   static String registerUrl = '$baseUrl/register';
   static String profileUrl = '$baseUrl/profile';
   static String loginUrl = '$baseUrl/login';
@@ -15,5 +16,9 @@ class ApiUrl {
   static String bannersUrl = '$baseUrl/banners';
   static String resetPasswordUrl = '$baseUrl/send-verification';
   static String deleteAccountUrl = '$baseUrl/delete-account';
+  static String notificationUrl = '$baseUrl/notification';
+  static String transactionUrl = '$baseUrl/transaction';
+  static String otpLoginRequestUrl = '$baseUrl/request-otp-login';
+  static String otpLoginCheckUrl = '$baseUrl/otp-check-login';
 
 }

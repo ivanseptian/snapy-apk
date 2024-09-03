@@ -33,7 +33,17 @@ class Data {
   String? address;
   int? point;
   String? expiredDate;
-  String? memberType;
+  String? type;
+  String? memberTypeDesc;
+  String? idTypeMembership;
+  String? imageCardUrl;
+  String? nextMembership;
+  int? year;
+  int? totalTransactionThisYear;
+  int? remainingTransaction;
+  int? targetTransaction;
+  int? totalQtyTransaction;
+  int? remainingQtyTransaction;
 
   Data(
       {this.loginName,
@@ -43,7 +53,17 @@ class Data {
         this.address,
         this.point,
         this.expiredDate,
-      this.memberType});
+      this.type,
+      this.idTypeMembership,
+      this.memberTypeDesc,
+        this.nextMembership,
+        this.imageCardUrl,
+      this.year,
+      this.totalTransactionThisYear,
+      this.remainingTransaction,
+      this.targetTransaction,
+      this.totalQtyTransaction,
+      this.remainingQtyTransaction});
 
   Data.fromJson(Map<String, dynamic> json) {
     loginName = json['LoginName'];
@@ -52,8 +72,18 @@ class Data {
     loginId = json['LoginId'];
     address = json['address'];
     point = json['point'];
+    nextMembership = json['nextMembership'];
     expiredDate = json['expiredDate'];
-    memberType = json['type'].toString();
+    type = json['type'].toString();
+    idTypeMembership = json['idTypeMembership'];
+    imageCardUrl = json['ImageUrl'];
+    memberTypeDesc = json['memberTypeDesc'];
+    year = json['year'];
+    totalTransactionThisYear = json['totalTransactionThisYear'];
+    remainingTransaction = json['remainingTransaction'];
+    targetTransaction = json['targetTransaction'];
+    totalQtyTransaction = json['totalQtyTransaction'];
+    remainingQtyTransaction = json['remainingQtyTransaction'];
   }
 
   Map<String, dynamic> toJson() {

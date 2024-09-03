@@ -1,4 +1,5 @@
 import 'package:cool_alert/cool_alert.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:markaz_snappy/models/register_model.dart';
@@ -30,7 +31,14 @@ class RegisterScreenController extends GetxController {
   final formKey = GlobalKey<FormState>();
   var isObsecurePass = true.obs;
   var isObsecureConfirmPass = true.obs;
+  String firebaseToken = "";
 
+  @override
+  Future<void> onInit() async {
+    firebaseToken = await FirebaseMessaging.instance.getToken()??"";
+    debugPrint("token $firebaseToken");
+    super.onInit();
+  }
   void showHidePassword(){
     isObsecurePass.value = !isObsecurePass.value;
     print("show_hide_pass");
@@ -94,14 +102,14 @@ class RegisterScreenController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString(StringValue.sessionTokenStr, token);
     // await prefs.setString(StringValue.sessionAddressStr, data.address??"");
-    await prefs.setString(StringValue.sessionEmailStr, data.loginEmail??"");
+    // await prefs.setString(StringValue.sessionEmailStr, data.loginEmail??"");
     // await prefs.setString(StringValue.sessionExpiredStr, data.expiredDate??"");
     await prefs.setString(StringValue.sessionLoginIdStr, data.loginId??"");
-    await prefs.setString(StringValue.sessionNameStr, data.loginName??"");
-    await prefs.setString(StringValue.sessionPhoneStr, data.loginPhone??"");
+    // await prefs.setString(StringValue.sessionNameStr, data.loginName??"");
+    // await prefs.setString(StringValue.sessionPhoneStr, data.loginPhone??"");
     // await prefs.setString(StringValue.sessionPointStr, (data.point??0).toString());
     // Get.offAllNamed(Routes.mainScreen);
-    Get.toNamed(Routes.otpScreen);
+    Get.toNamed(Routes.otpScreen, arguments: firebaseToken);
   }
 
 }

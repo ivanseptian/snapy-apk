@@ -15,9 +15,9 @@ class OtpScreenService {
     }
   }
 
-  Future<NoData?> otpVerification(String otp) async {
+  Future<NoData?> otpVerification(String otp, String firebaseToken) async {
     try {
-      var res = await Api.otpVerificationUser(otp);
+      var res = await Api.otpVerificationUser(otp, firebaseToken);
       NoData dataJson;
       dataJson = NoData.fromJson(res);
       return dataJson;

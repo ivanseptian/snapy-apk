@@ -1,10 +1,12 @@
 class only_message_model {
   String? message;
+  int? code;
 
-  only_message_model({this.message});
+  only_message_model({this.message, this.code});
 
   only_message_model.fromJson(Map<String, dynamic> json) {
     message = json['message'];
+    code = json['code'];
   }
 
   Map<String, dynamic> toJson() {

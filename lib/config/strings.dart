@@ -17,6 +17,8 @@ class StringValue {
   static String rsNamaLengkap = "Nama Lengkap";
   static String rsNoHandphoneTxt = "Nomor Telepon cth.8xxxxxxxx";
   static String resetPasswordTxt = "Reset Password";
+  static String transaksi = "Transaksi";
+  static String amount = "Amount";
 
   // general text
   static String fieldRequired = "Wajib di Isi";
@@ -33,6 +35,8 @@ class StringValue {
   static String homeTxt = "Home";
   static String historyTxt = "History";
   static String helpTxt = "Help";
+  static String transactionTxt = "Transaction";
+  static String notificationTxt = "Notification";
   static String accountTxt = "Profile";
   static String alamatTxt = "Alamat";
   static String otpMasukanOtp = "Masukkan kode OTP";
@@ -55,13 +59,14 @@ class StringValue {
 
   //session variabel
   static String sessionTokenStr = "token";
-  static String sessionNameStr = "name";
-  static String sessionEmailStr = "email";
-  static String sessionPhoneStr = "phone";
+  static String sessionTokenIsVerified = "tokenVerified";
+  // static String sessionNameStr = "name";
+  // static String sessionEmailStr = "email";
+  // static String sessionPhoneStr = "phone";
   static String sessionLoginIdStr = "id";
-  static String sessionAddressStr = "address";
-  static String sessionPointStr = "point";
-  static String sessionExpiredStr = "expired";
-  static String sessionMemberTypeStr = "member_type";
+  // static String sessionAddressStr = "address";
+  // static String sessionPointStr = "point";
+  // static String sessionExpiredStr = "expired";
+  // static String sessionMemberTypeStr = "member_type";
 
 }
